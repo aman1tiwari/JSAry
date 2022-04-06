@@ -1,37 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Arrays Assignment</title>
-    <link rel="stylesheet" href="./index.html">
-</head>
-<body>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
     <center>
-        <div>
-        <select id="dselect" onchange="ddlselect()">
-            <option>Select</option>
-            <option>Company</option>
-            <option>Model</option>
-            <option>Memory</option>
-            <option>Price</option>
+      <div>
+        <select id="sort" >
+          <option>-Sort-</option>
+          <option>Ascending</option>
+          <option>Descending</option>
+        </select>
+        <select id="dselect">
+          <option>-Sort By-</option>
+          <option >Company</option>
+          <option onchange="compare1()">Model</option>
+          <option>Memory</option>
+          <option>Price</option>
         </select>
 
-        <input type="text" id="txtvalue"/>
-        <button>Search</button>
-    </div>
-    <div id="table">
-       <tr>
-           <th id="comp">Company</th>
-           <th id="model">Model</th>
-           <th id="memory">Memory(GB)</th>
-           <th id="price">Price(Rs)</th>
-       </tr>
+        <!-- <input type="text" id="txtvalue"/> -->
+        <button onclick="compare()">Sort</button>
+      </div>
+      <div class="container">
+        <label for="Company">Company :</label>
+        <input type="text" id="company" name="Company" /><br /><br />
 
-    </div>
+        <label for="model">Model :</label>
+        <input type="text" id="model" name="Model" /><br /><br />
 
-</center>
+        <label for="memory">Memory :</label>
+        <input type="text" id="memory" name="Memory" /><br /><br />
+
+        <label for="price">Price :</label>
+        <input type="text" id="price" name="Price" /><br /><br />
+
+        <label for="quantity">Quantity :</label>
+        <input type="number" id="quantity" name="Quantity" /><br /><br />
+
+        <button id="btn" onclick="add()">ADD</button>
+      </div>
+      <div id="table">
+        <table id="table1">
+          <tr>
+            <th id="comp"></th>
+            <th id="model"></th>
+            <th id="memory"></th>
+            <th id="price"></th>
+          </tr>
+        </table>
+        <div class="btn"><button>Delete</button></div>
+      </div>
+      <div class="bill">
+        <select id="bill">
+          <option>--Select Product--</option>
+          <option id="sam">Samsung</option>
+          <option id="moto">Motorola</option>
+          <option id="app">Apple</option>
+          <option id="nokia">Nokia</option>
+          <option id="mi">Xiomi</option>
+        </select>
+        <input type="number" id="quantityy" placeholder="quantity" />
+        <button>ADD</button>
+        <button onclick="add_cart()">Generate Bill</button>
+      </div>
+      <div>
+        <table id="table2">
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </table>
+      </div>
+    </center>
     <script src="./script.js"></script>
-</body>
+  </body>
 </html>
