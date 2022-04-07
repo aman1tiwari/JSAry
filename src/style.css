@@ -4,7 +4,7 @@ table{
     text-align: center;
     
 }
-th, td{
+ td{
     margin: 2%;
     padding: 2%;
     border-bottom: 2px solid black;
@@ -16,5 +16,8 @@ th, td{
     padding: 1%;
     margin-left: 43%;
     margin-top: -3%;
+}
+.rating{
+    padding-top: 5%;
 }
 

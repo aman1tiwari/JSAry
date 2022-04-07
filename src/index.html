@@ -12,19 +12,19 @@
       <div>
         <select id="sort" >
           <option>-Sort-</option>
-          <option>Ascending</option>
-          <option>Descending</option>
+          <option value="ascending">Ascending</option>
+          <option value="descending">Descending</option>
         </select>
-        <select id="dselect">
+        <select id="sortby" >
           <option>-Sort By-</option>
-          <option >Company</option>
-          <option onchange="compare1()">Model</option>
-          <option>Memory</option>
-          <option>Price</option>
+          <option value="company">Company</option>
+          <option value="model">Model</option>
+          <option value="mem">Memory</option>
+          <option value="price">Price</option>
         </select>
 
         <!-- <input type="text" id="txtvalue"/> -->
-        <button onclick="compare()">Sort</button>
+        <button onclick="sort()">Sort</button>
       </div>
       <div class="container">
         <label for="Company">Company :</label>
@@ -37,7 +37,7 @@
         <input type="text" id="memory" name="Memory" /><br /><br />
 
         <label for="price">Price :</label>
-        <input type="text" id="price" name="Price" /><br /><br />
+        <input type="number" id="price" name="Price" /><br /><br />
 
         <label for="quantity">Quantity :</label>
         <input type="number" id="quantity" name="Quantity" /><br /><br />
@@ -56,16 +56,12 @@
         <div class="btn"><button>Delete</button></div>
       </div>
       <div class="bill">
-        <select id="bill">
+        <select id="bill"  >
           <option>--Select Product--</option>
-          <option id="sam">Samsung</option>
-          <option id="moto">Motorola</option>
-          <option id="app">Apple</option>
-          <option id="nokia">Nokia</option>
-          <option id="mi">Xiomi</option>
-        </select>
+          <option id="opt"></option>
+          
         <input type="number" id="quantityy" placeholder="quantity" />
-        <button>ADD</button>
+        <button >ADD</button>
         <button onclick="add_cart()">Generate Bill</button>
       </div>
       <div>
@@ -76,6 +72,27 @@
             <th></th>
           </tr>
         </table>
+      </div>
+      <div>
+        <select id="Item">
+          <option>--Select Options--</option>
+        </select>
+        <input type="number" placeholder="quantity" id="new">
+        <button onclick="updateItems()">Update</button>
+      </div>
+      <div class="rating">
+        <strong>Rate Us:</strong>
+        <select id="sel">
+          <option>--Select Options--</option>
+        </select>
+        <select id="rates">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option selected>5</option>
+        </select>
+        <button>Rate</button>
       </div>
     </center>
     <script src="./script.js"></script>
