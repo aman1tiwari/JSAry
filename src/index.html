@@ -53,7 +53,7 @@
             <th id="price"></th>
           </tr>
         </table>
-        <div class="btn"><button>Delete</button></div>
+        <div class="btn"><button onclick="delFun()">Delete</button></div>
       </div>
       <div class="bill">
         <select id="bill"  >
@@ -74,7 +74,7 @@
         </table>
       </div>
       <div>
-        <select id="Item">
+        <select id="Item" onchange="upFun()">
           <option>--Select Options--</option>
         </select>
         <input type="number" placeholder="quantity" id="new">
@@ -86,13 +86,14 @@
           <option>--Select Options--</option>
         </select>
         <select id="rates">
+          <option selected></option>
           <option>1</option>
           <option>2</option>
           <option>3</option>
           <option>4</option>
-          <option selected>5</option>
+          <option>5</option>
         </select>
-        <button>Rate</button>
+        <button onclick="rateFun()">Rate</button>
       </div>
     </center>
     <script src="./script.js"></script>

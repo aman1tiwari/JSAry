@@ -6,6 +6,7 @@ function add() {
   var memory = document.getElementById("memory").value;
   var price = document.getElementById("price").value;
   var quant = document.getElementById("quantity").value;
+  var Ratingval=document.getElementById("rates").value;
 
   mytable =
     "<table><tr><th>Company</th><th>Model</th><th>Memory(GB)</th><th>Price(Rs)</th><th>Quantity</th><th>Action</th><th>Rating</th></tr>";
@@ -16,28 +17,31 @@ function add() {
     Mem: memory,
     Price: price,
     Quantity: quant,
+    Rating:Ratingval,
   };
   cart.push(mytable);
   cart2.push(product);
-  cart2.forEach((element) => {
-    mytable +=
-      "<tr><td>" +
-      element.Comp +
-      "</td><td>" +
-      element.Mod +
-      "</td><td>" +
-      element.Mem +
-      "</td><td>" +
-      element.Price +
-      "</td><td>" +
-      element.Quantity +
-      "</td><td>"+
-    '<input type="checkbox"/>';
-    "</td></tr>";
-  });
-  mytable += "</table>";
-  console.log(mytable);
-  document.getElementById("table1").innerHTML = mytable;
+  // cart2.forEach((element) => {
+  //   mytable +=
+  //     "<tr><td>" +
+  //     element.Comp +
+  //     "</td><td>" +
+  //     element.Mod +
+  //     "</td><td>" +
+  //     element.Mem +
+  //     "</td><td>" +
+  //     element.Price +
+  //     "</td><td>" +
+  //     element.Quantity +
+  //     "</td><td>"+
+  //   '<input type="checkbox"/></td><td>'+
+  //     element.Rating;
+  //   "</td></tr>";
+  // });
+  // mytable += "</table>";
+  // console.log(mytable);
+  // document.getElementById("table1").innerHTML = mytable;
+
   myDD="<select><option>--Select Product--</option>"
   cart2.forEach((element) => {
     myDD+="<option>"+element.Comp+"</option>";
@@ -58,6 +62,7 @@ function add() {
   });
   myDD3+="</select>"
   document.getElementById('sel').innerHTML=myDD3;
+  display();
  
 }
 function display() {
@@ -76,20 +81,21 @@ function display() {
       element.Price +
       "</td><td>" +
       element.Quantity +
-      "</td><td>";+
-    '<input type="checkbox"/>' 
+      "</td><td>"+
+    '<input type="checkbox" name="field" value="${index}"/></td><td>'+
+      element.Rating;
     "</td></tr>";
   });
   mytable += "</table>";
-  console.log(mytable);
+  // console.log(mytable);
   document.getElementById("table1").innerHTML = mytable;
 }
 
 function sort() {
   var st = document.getElementById("sort").value;
   var sel = document.getElementById("sortby").value;
-  console.log("value of st " + st);
-  console.log("value of sel " + sel);
+  // console.log("value of st " + st);
+  // console.log("value of sel " + sel);
   if (sel == "company") {
     if (st == "ascending") {
       cart2.sort((a, b) => {
@@ -182,19 +188,43 @@ function add_cart() {
   document.getElementById("table2").innerHTML = table2;
 }
 
-function rate(){
-  var val=document.getElementById("rates").value;
-  
+function upFun(){
+  let upval=document.getElementById("Item").value;
+  let qty=document.getElementById("new").value;
+  cart2.forEach(element => {
+    if(element.Comp==upval){
+      element.Quantity=qty;
+    }
+  });
 }
 
-// function updateItems(){
-//   var Index=document.getElementById("Item").value;
-//   var NewQuantity=document.getElementById("new").value;
-//   var data=cart2[Index];
-//   console.log(cart2[0].Quantity);
-//   // forEach Loop
-//   data.Quantity=NewQuantity;
+function updateItems(){
+  upFun();
+  display();
+}
 
-//   display();
-// }
+function rateFun(){
+  let selRate=document.getElementById("sel").value;
+  let rates=document.getElementById("rates").value;
+  cart2.forEach(element => {
+    if(element.Comp==selRate){
+      element.Rating=rates;
+    }
+  });
+  display();
+}
+
+function delFun(){
+  let del =document.querySelectorAll('input[name="field"]:checked');
+  let check=[];
+  del.forEach(element => {
+    check.push(checkbox.value)
+  });
+  check.forEach(element => {
+    cart2.splice(element,1)
+  });
+  display();
+}
+
+
 
